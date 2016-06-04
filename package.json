@@ -1,5 +1,5 @@
 {
-  "name": "epub-fast-reader",
+  "name": "epub-speed-reader",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pravindahal/epub-fast-reader.git"
+    "url": "git+https://github.com/pravindahal/epub-speed-reader.git"
   },
   "author": "Pravin Dahal",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/pravindahal/epub-fast-reader/issues"
+    "url": "https://github.com/pravindahal/epub-speed-reader/issues"
   },
-  "homepage": "https://github.com/pravindahal/epub-fast-reader#readme"
+  "homepage": "https://github.com/pravindahal/epub-speed-reader#readme"
 }
