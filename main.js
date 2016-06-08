@@ -101,8 +101,7 @@ new Promise( (resolve, reject) => {
             var paragraphs = text.split(/\r?\n\n/);
             paragraphs.forEach( (paragraph, j) => {
                 if (paragraph === undefined) {
-                    console.log("undefined");
-                    process.exit();
+                    return true; //i.e. continue
                 }
                 var filename = folder + "/" + pad(i, allVals.length) + "_" + pad(j, paragraphs.length) + ".wav";
                 console.log(filename + " - start");
