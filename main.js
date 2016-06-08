@@ -4,6 +4,7 @@ const watson = require('watson-developer-cloud');
 const fs = require('fs');
 const EPub = require('epub');
 const html2text = require('html-to-text');
+const trim = require('trim');
 
 const textToSpeech = (text, filename) => {
     return new Promise( (resolve, reject) => {
@@ -89,9 +90,20 @@ new Promise( (resolve, reject) => {
     var folder = data[0];
     var allVals = data[1];
     allVals.forEach( (v, i) => {
-        v.then( (text) => {
-            var paragraphs = html2text.fromString(text).split(/\r?\n\n/);
+        v.then( (html) => {
+            if (html === undefined) {
+                return;
+            }
+            var text = trim(html2text.fromString(html));
+            if (text == '') {
+                return;
+            }
+            var paragraphs = text.split(/\r?\n\n/);
             paragraphs.forEach( (paragraph, j) => {
+                if (paragraph === undefined) {
+                    console.log("undefined");
+                    process.exit();
+                }
                 var filename = folder + "/" + pad(i, allVals.length) + "_" + pad(j, paragraphs.length) + ".wav";
                 console.log(filename + " - start");
                 textToSpeech(paragraph, filename).then( () => {

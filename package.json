@@ -10,6 +10,7 @@
   "dependencies": {
     "epub": "^0.1.6",
     "html-to-text": "^2.1.0",
+    "trim": "0.0.1",
     "watson-developer-cloud": "^1.9.3"
   },
   "devDependencies": {},
