@@ -46,7 +46,13 @@ const pad = (n, max, z) => {
 const TYPE_STRING = 1;
 const TYPE_PROMISE = 2;
 
-var epubfile = 'Metamorphosis-jackson.epub';
+var args = process.argv.slice(2);
+if (args.length == 0) {
+    console.log("Expecting path of input file as argument");
+    process.exit();
+}
+var epubfile = args[0];
+var epubpath = require('path').dirname(epubfile);
 
 var epub = new EPub(epubfile);
 
@@ -67,15 +73,26 @@ new Promise( (resolve, reject) => {
                 });
             }));
         });
-        resolve(allVals);
+        resolve([epub.metadata.title, allVals]);
     });
     epub.parse();
-}).then( (allVals) => {
+}).then( (data) => {
+    var title = data[0];
+    var allVals = data[1];
+    var dirname = "output/" + title;
+    return new Promise( (resolve, reject) => {
+        fs.mkdir(dirname, (err) => {
+            resolve([dirname, allVals]);
+        });
+    });
+}).then( (data) => {
+    var folder = data[0];
+    var allVals = data[1];
     allVals.forEach( (v, i) => {
         v.then( (text) => {
             var paragraphs = html2text.fromString(text).split(/\r?\n\n/);
             paragraphs.forEach( (paragraph, j) => {
-                var filename = "" + pad(i, allVals.length) + "_" + pad(j, paragraphs.length) + ".wav";
+                var filename = folder + "/" + pad(i, allVals.length) + "_" + pad(j, paragraphs.length) + ".wav";
                 console.log(filename + " - start");
                 textToSpeech(paragraph, filename).then( () => {
                     console.log(filename + " - start");
