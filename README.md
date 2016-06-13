@@ -12,7 +12,7 @@ IBM Watson Text to Speect API supports 1 million characters per month for free. 
 
 bin/epub2audio "/path/to/epub"
 
-## TODO
+## todo
 
 * Save files by chapter names
 * Option to compress/convert the files to flac/mp3
