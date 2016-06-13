@@ -16,3 +16,5 @@ bin/epub2audio "/path/to/epub"
 
 * Save files by chapter names
 * Option to compress/convert the files to flac/mp3
+* Option to merge files in different ways
+* Option to use different engines (eg. OS X TTS)
