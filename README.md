@@ -1,4 +1,4 @@
-# epub-to-audio
+# epub2audio
 
 A tool to convert epub to audiobook using IBM watson Text to Speech API.
 
