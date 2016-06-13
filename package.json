@@ -1,12 +1,13 @@
 {
   "name": "epub-to-audio",
   "version": "1.0.0",
+  "bin": "bin/epub2audio",
   "engine-strict": true,
   "engines": {
     "node": ">=5.11.0 <6.0.0"
   },
   "description": "",
-  "main": "main.js",
+  "main": "lib/main",
   "dependencies": {
     "epub": "^0.1.6",
     "html-to-text": "^2.1.0",
