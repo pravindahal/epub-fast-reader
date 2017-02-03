@@ -1,12 +1,10 @@
 # epub2audio
 
-A tool to convert epub to audiobook using IBM watson Text to Speech API.
+A tool to convert epub to audiobook using OS X tts command line application.
 
 ## setup
 
-For instructions on how to get the service credentials, click [here](https://github.com/watson-developer-cloud/node-sdk#getting-the-service-credentials). When you have your service credentials, copy the credentials.json-dist to credentials.json and edit the file to add username and password.
-
-IBM Watson Text to Speect API supports 1 million characters per month for free. From a random internet source, an average book has 500,000 characters. So, you will be able to convert 2 books per month for free.
+You need to install ffmpeg or libav. You can do it using homebrew.
 
 ## usage
 
@@ -15,6 +13,3 @@ bin/epub2audio "/path/to/epub"
 ## todo
 
 * Save files by chapter names
-* Option to compress/convert the files to flac/mp3
-* Option to merge files in different ways
-* Option to use different engines (eg. OS X TTS)
